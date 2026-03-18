@@ -902,11 +902,22 @@ body.pc-view .cp-world-dot.on{width:18px}
 
 /* ── 프롤로그 영역 ── */
 /* 캐릭터 상세·작품 상세 공용 */
+.prologue-section{
+  flex-shrink:0; /* flex-column 안에서 높이 붕괴 방지 */
+}
+.prologue-label{
+  font-size:11px;font-weight:800;letter-spacing:2px;
+  color:#a78bfa;text-transform:uppercase;
+  padding:0 0 8px 2px;
+  opacity:.8;
+}
 .prologue-wrap{
   position:relative;
   /* 좌우 padding을 상쇄해 가로 100% */
-  margin:16px -16px 0;
+  margin:0 -16px;
   overflow:hidden;
+  /* flex 컨테이너 안에서 높이 붕괴 방지 */
+  flex-shrink:0;
 }
 .prologue-inner{
   height:400px; /* 모바일 기본 */
@@ -4774,14 +4785,17 @@ function closePersona(){ document.getElementById('un-persona-modal').classList.r
       <hr class="cd-hr">
       <div class="cd-desc" id="cd-desc"></div>
       <!-- 프롤로그 영역 (캐릭터 상세) -->
-      <div class="prologue-wrap" id="cd-prologue-wrap">
-        <div class="prologue-inner" id="cd-prologue-inner">
+      <div class="prologue-section">
+        <div class="prologue-label">Prologue</div>
+        <div class="prologue-wrap" id="cd-prologue-wrap">
+          <div class="prologue-inner" id="cd-prologue-inner">
           <img src="https://images.novelpia.com/imagebox/67/670eecde47a101ad8b91030029513f11_6711283_1758013582.wimg" alt="프롤로그 이미지 1">
           <img src="https://images.novelpia.com/imagebox/a8/a85e2b66e6ddbbeb37c31f8a91f1e92b_4893680_1758013592.wimg" alt="프롤로그 이미지 2">
           <img src="https://images.novelpia.com/imagebox/e7/e7d3540a9f392b6c2ad57f5db729fa63_4167478_1758013601.wimg" alt="프롤로그 이미지 3">
+          </div>
+          <div class="prologue-fade" id="cd-prologue-fade"></div>
+          <button class="prologue-more-btn" id="cd-prologue-btn" onclick="togglePrologue('cd')">더보기 ▾</button>
         </div>
-        <div class="prologue-fade" id="cd-prologue-fade"></div>
-        <button class="prologue-more-btn" id="cd-prologue-btn" onclick="togglePrologue('cd')">더보기 ▾</button>
       </div>
       <div style="margin-top:16px;border-top:1px solid #333;padding-top:14px">
         <div style="font-size:13px;font-weight:800;color:#e4e4e7;margin-bottom:10px" id="cd-rank-title">최고의 이해자</div>
@@ -4818,14 +4832,17 @@ function closePersona(){ document.getElementById('un-persona-modal').classList.r
       <div class="wp-synopsis" id="wp-synopsis"></div>
       <div class="wp-latest" id="wp-latest"></div>
       <!-- 프롤로그 영역 (작품 상세) -->
-      <div class="prologue-wrap" id="wp-prologue-wrap">
-        <div class="prologue-inner" id="wp-prologue-inner">
-          <img src="https://images.novelpia.com/imagebox/67/670eecde47a101ad8b91030029513f11_6711283_1758013582.wimg" alt="프롤로그 이미지 1">
-          <img src="https://images.novelpia.com/imagebox/a8/a85e2b66e6ddbbeb37c31f8a91f1e92b_4893680_1758013592.wimg" alt="프롤로그 이미지 2">
-          <img src="https://images.novelpia.com/imagebox/e7/e7d3540a9f392b6c2ad57f5db729fa63_4167478_1758013601.wimg" alt="프롤로그 이미지 3">
+      <div class="prologue-section">
+        <div class="prologue-label">Prologue</div>
+        <div class="prologue-wrap" id="wp-prologue-wrap">
+          <div class="prologue-inner" id="wp-prologue-inner">
+            <img src="https://images.novelpia.com/imagebox/67/670eecde47a101ad8b91030029513f11_6711283_1758013582.wimg" alt="프롤로그 이미지 1">
+            <img src="https://images.novelpia.com/imagebox/a8/a85e2b66e6ddbbeb37c31f8a91f1e92b_4893680_1758013592.wimg" alt="프롤로그 이미지 2">
+            <img src="https://images.novelpia.com/imagebox/e7/e7d3540a9f392b6c2ad57f5db729fa63_4167478_1758013601.wimg" alt="프롤로그 이미지 3">
+          </div>
+          <div class="prologue-fade" id="wp-prologue-fade"></div>
+          <button class="prologue-more-btn" id="wp-prologue-btn" onclick="togglePrologue('wp')">더보기 ▾</button>
         </div>
-        <div class="prologue-fade" id="wp-prologue-fade"></div>
-        <button class="prologue-more-btn" id="wp-prologue-btn" onclick="togglePrologue('wp')">더보기 ▾</button>
       </div>
       <!-- 작품 유저 랭킹 -->
       <div style="margin:16px 0;background:rgba(124,58,237,.08);border-radius:14px;padding:16px;border:1px solid rgba(124,58,237,.2)">
